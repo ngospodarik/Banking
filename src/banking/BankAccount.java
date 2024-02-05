@@ -23,4 +23,56 @@ public class BankAccount {
      */
     Customer customer;
 
+    // constructor
+
+    /**
+     * Creates a bank account of a given type for given customer
+     * @param accountType for bank account
+     * @param customer for bank account
+     */
+    public BankAccount(String accountType, Customer customer) {
+        this.accountType = accountType;
+        this.customer = customer;
+    }
+
+    // methods
+
+    /**
+     * Deposits the given amount
+     * @param amount to add to balance
+     */
+    public void deposit(double amount) {
+        this.balance += amount;
+    }
+
+    /**
+     * Withdraews the given amount from balance.
+     * @param amount to withdraw
+     * @throws Exception if given amount is larger than balance
+     */
+    public void withdraw(double amount) throws Exception {
+        if (amount > this.balance) {
+            throw new Exception("Amount is greater than available bakance");
+
+        }
+        this.balance -= amount;
+
+    }
+
+    /**
+     * Returns account type and balance for this bank account
+     * @return string with all the info
+     */
+    public String getAccountInfo() {
+        return this.accountType + ": " + this.balance;
+    }
+
+    /**
+     * Returns the customer name and address for the account
+     * @return string with data
+     */
+    public String getCustomerInfo() {
+        return this.customer.getName() + ": " + this.customer.getAddress();
+
+    }
 }
